@@ -47,7 +47,7 @@ export const register = catchAsyncErrors(async(req,res,next)=>{
             password: hashedPassword,
         })
 
-        const verificationCode = await user.generateVerificationCode();
+        const verificationCode = await User.generateVerificationCode();
         await user.save();
         sendVerificationCode(verificationCode,email,res);
 
