@@ -165,7 +165,7 @@ export const forgotPassword = catchAsyncErrors(async(req,res,next)=>{
         return next(new ErrorHandler("Invalid Email.",400));
     }
 
-    const resetToken = user.getResetPasswordToken();
+    const resetToken = User.getResetPasswordToken();
 
     await user.save({validateBeforeSave: false});
 
